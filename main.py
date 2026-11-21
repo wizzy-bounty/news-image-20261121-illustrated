@@ -201,6 +201,7 @@ GOLD = (217, 154, 22)
 TEAL = (14, 122, 109)
 WHITE = (255, 255, 255)
 BLACK = (10, 12, 18)
+STAT_ACCENTS = (GOLD, NAVY)  # alternating accent bar on the numbers strip
 
 REGION = {
     "EUROPE": (36, 86, 166),
@@ -588,7 +589,7 @@ def build():
     for i, (num, lab) in enumerate(stats):
         bx = M + i * (sw + 6)
         c.rect(bx, sy, sw, sh, PAPER2)
-        c.rect(bx, sy, sw, 4, GOLD if i % 2 == 0 else NAVY)
+        c.rect(bx, sy, sw, 4, STAT_ACCENTS[i % 2])
         c.text(bx + sw / 2, sy + 8, num, "bold_stat", INK, "c")
         for j, ln in enumerate(lab.split("\n")):
             c.text(bx + sw / 2, sy + 36 + j * 11, ln, "sans_mini", GREY, "c")
